@@ -1,0 +1,58 @@
+name: DanceCount
+options:
+  bundleIdPrefix: com.raikoevestus
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+
+packages:
+  BeatKit:
+    path: BeatKit
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: 6Z9566JPYL
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  DanceCount:
+    type: application
+    platform: iOS
+    sources:
+      - DanceCount
+    dependencies:
+      - package: BeatKit
+    info:
+      path: DanceCount/Info.plist
+      properties:
+        CFBundleDisplayName: Dance Count
+        NSMicrophoneUsageDescription: Dance Count listens to the music around you to find the beat. Audio is analysed on your iPhone and never uploaded.
+        UIBackgroundModes: [audio]
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        ITSAppUsesNonExemptEncryption: false
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.raikoevestus.DanceCount
+        PRODUCT_NAME: Dance Count
+        PRODUCT_MODULE_NAME: DanceCount
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+schemes:
+  DanceCount:
+    build:
+      targets:
+        DanceCount: all
+    run:
+      config: Debug
+    archive:
+      config: Release
